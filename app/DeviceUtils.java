@@ -1,4 +1,4 @@
-package com.zte.fn.iop.zparking.util;
+package com.modules.service;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
