@@ -1,4 +1,4 @@
-package com.zte.fn.iop.zparking.modules.service;
+package com.modules.service;
 
 import android.app.NotificationManager;
 import android.app.Service;
@@ -156,7 +156,7 @@ public class DownloadService extends Service{
         builder = new NotificationCompat.Builder(mContext)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentText("0%")
-                .setContentTitle("园区停车")
+                .setContentTitle("App 更新")
                 .setProgress(100, 0, false);
         notificationManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(NOTIFY_ID, builder.build());
