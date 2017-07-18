@@ -1,4 +1,4 @@
-package com.zte.fn.iop.zparking.modules.service;
+package com.modules.service;
 
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;
