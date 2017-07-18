@@ -1,4 +1,4 @@
-package com.zte.fn.iop.zparking.modules.service;
+package com.modules.service;
 
 /**
  * Created by 0048104325 on 2017/7/18.
