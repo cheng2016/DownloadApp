@@ -2,7 +2,7 @@
 下载更新app的一个示例
 
 
-### retrofit、okhttp、rxjava2 init
+### Init retrofit、okhttp、rxjava2 
 
     private <T> T getRetrofit(Class<T> T) {
         retrofit = new Retrofit.Builder()
@@ -38,7 +38,7 @@
     }
     
     
-### notification view
+### Notification view
 
         /**
          * 初始化Notification通知
@@ -74,7 +74,7 @@
             notificationManager.cancel(NOTIFY_ID);
         }
     
-### download app file
+### Download app file and install
 
         IDownloadApi iDownloadApi = getRetrofit(IDownloadApi.class);
                 iDownloadApi.loadFile()
