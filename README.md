@@ -1,6 +1,8 @@
 # DownloadApp
 下载更新app的一个示例，Retrofit2 + OkHttp + Rxjava2+ Notification + Service实现后台自动更新
 
+
+
 ### Init retrofit、okhttp、rxjava2 
 
     private <T> T getRetrofit(Class<T> T) {
@@ -76,40 +78,40 @@
 ### Download app file and install
 
         IDownloadApi iDownloadApi = getRetrofit(IDownloadApi.class);
-                iDownloadApi.loadFile()
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(new Observer<ResponseBody>() {
-                            @Override
-                            public void onSubscribe(@NonNull Disposable d) {
-                                Logger.i(TAG,"onSubscribe");
-                                mCompositeDisposable.add(d);
-                            }
+        iDownloadApi.loadFile()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ResponseBody>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+                        Logger.i(TAG,"onSubscribe");
+                        mCompositeDisposable.add(d);
+                    }
 
-                            @Override
-                            public void onNext(@NonNull ResponseBody responseBody) {
-                                Logger.i(TAG,"onNext");
-                                File file = null;
-                                try {
-                                    file = DownloadUtils.getInstance(fileDir,fileName).saveFile(responseBody);
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                                installApk(file);
-                                cancelNotification();
-                            }
+                    @Override
+                    public void onNext(@NonNull ResponseBody responseBody) {
+                        Logger.i(TAG,"onNext");
+                        File file = null;
+                        try {
+                            file = DownloadUtils.getInstance(fileDir,fileName).saveFile(responseBody);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        installApk(file);
+                        cancelNotification();
+                    }
 
-                            @Override
-                            public void onError(@NonNull Throwable e) {
-                                Logger.e(TAG +" %s","onError "+e.getMessage(),e);
-                                cancelNotification();
-                            }
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        Logger.e(TAG +" %s","onError "+e.getMessage(),e);
+                        cancelNotification();
+                    }
 
-                            @Override
-                            public void onComplete() {
-                                Logger.i(TAG,"onComplete");
-                            }
-                        });
+                    @Override
+                    public void onComplete() {
+                        Logger.i(TAG,"onComplete");
+                    }
+                });
 
 
 ## Thanks 
