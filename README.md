@@ -111,3 +111,8 @@
                                 Logger.i(TAG,"onComplete");
                             }
                         });
+
+
+## Thanks 
+
+[DownLoadManager](https://github.com/shanyao0/DownLoadManager)
