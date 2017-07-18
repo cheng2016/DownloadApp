@@ -79,8 +79,8 @@ public class DownloadService extends Service{
     public int onStartCommand(Intent intent, int flags, int startId) {
         Logger.i(TAG,"onStartCommand");
         initNotification();
-        IFileLoad iFileLoad = getRetrofit(IFileLoad.class);
-        iFileLoad.loadFile()
+        IDownloadApi iDownloadApi = getRetrofit(IDownloadApi.class);
+        iDownloadApi.loadFile()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ResponseBody>() {
@@ -95,7 +95,7 @@ public class DownloadService extends Service{
                         Logger.i(TAG,"onNext");
                         File file = null;
                         try {
-                            file = FileUtils.getInstance(fileDir,fileName).saveFile(responseBody);
+                            file = DownloadUtils.getInstance(fileDir,fileName).saveFile(responseBody);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
