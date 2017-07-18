@@ -49,7 +49,8 @@
                 .setContentText("0%")
                 .setContentTitle("App更新")
                 .setProgress(100, 0, false);
-        notificationManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager = (NotificationManager) mContext
+                .getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(NOTIFY_ID, builder.build());
     }
 
@@ -75,38 +76,38 @@
     
 ### download app file
 
-IDownloadApi iDownloadApi = getRetrofit(IDownloadApi.class);
-        iDownloadApi.loadFile()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<ResponseBody>() {
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-                        Logger.i(TAG,"onSubscribe");
-                        mCompositeDisposable.add(d);
-                    }
-
-                    @Override
-                    public void onNext(@NonNull ResponseBody responseBody) {
-                        Logger.i(TAG,"onNext");
-                        File file = null;
-                        try {
-                            file = DownloadUtils.getInstance(fileDir,fileName).saveFile(responseBody);
-                        } catch (IOException e) {
-                            e.printStackTrace();
+    IDownloadApi iDownloadApi = getRetrofit(IDownloadApi.class);
+            iDownloadApi.loadFile()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new Observer<ResponseBody>() {
+                        @Override
+                        public void onSubscribe(@NonNull Disposable d) {
+                            Logger.i(TAG,"onSubscribe");
+                            mCompositeDisposable.add(d);
                         }
-                        installApk(file);
-                        cancelNotification();
-                    }
 
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        Logger.e(TAG +" %s","onError "+e.getMessage(),e);
-                        cancelNotification();
-                    }
+                        @Override
+                        public void onNext(@NonNull ResponseBody responseBody) {
+                            Logger.i(TAG,"onNext");
+                            File file = null;
+                            try {
+                                file = DownloadUtils.getInstance(fileDir,fileName).saveFile(responseBody);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            installApk(file);
+                            cancelNotification();
+                        }
 
-                    @Override
-                    public void onComplete() {
-                        Logger.i(TAG,"onComplete");
-                    }
-                });
+                        @Override
+                        public void onError(@NonNull Throwable e) {
+                            Logger.e(TAG +" %s","onError "+e.getMessage(),e);
+                            cancelNotification();
+                        }
+
+                        @Override
+                        public void onComplete() {
+                            Logger.i(TAG,"onComplete");
+                        }
+                    });
