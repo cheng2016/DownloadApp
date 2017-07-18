@@ -1,4 +1,4 @@
-package com.zte.fn.iop.zparking.modules.service;
+package com.modules.service;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
