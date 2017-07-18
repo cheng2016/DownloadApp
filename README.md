@@ -1,6 +1,5 @@
 # DownloadApp
-下载更新app的一个示例
-
+下载更新app的一个示例，Retrofit2 + OkHttp + Rxjava2+ Notification + Service实现后台自动更新
 
 ### Init retrofit、okhttp、rxjava2 
 
