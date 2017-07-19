@@ -1,4 +1,4 @@
-package com.modules.service;
+package com.chengzj.app;
 
 import android.app.NotificationManager;
 import android.app.Service;
@@ -11,7 +11,6 @@ import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import com.orhanobut.logger.Logger;
-import com.zte.fn.iop.zparking.R;
 
 import java.io.File;
 import java.io.IOException;
@@ -42,9 +41,9 @@ public class DownloadService extends Service{
     private String  fileDir = Environment.getExternalStorageDirectory().getAbsolutePath() + File
             .separator + "M_DEFAULT_DIR";
     //目标文件存储的文件名
-    private String fileName = "iop-zparking-0.0.1.20170718092339.apk";
+    private String fileName = "Wandoujia_141749_web_direct_binded.apk";
 
-    private String url = "http://10.5.64.20:8080/view/%E7%89%A9%E8%81%94%E7%BD%91IOP%E7%9C%8B%E6%9D%BF/job/IOP_ZPARKING_BUILD/lastSuccessfulBuild/artifact/app/build/outputs/apk/";
+    private String url = "http://oss.ucdl.pp.uc.cn/fs01/union_pack/";
 
     private Context mContext;
 

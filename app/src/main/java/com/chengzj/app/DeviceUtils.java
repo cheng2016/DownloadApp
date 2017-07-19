@@ -1,4 +1,4 @@
-package com.modules.service;
+package com.chengzj.app;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;

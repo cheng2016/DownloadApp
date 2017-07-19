@@ -1,4 +1,4 @@
-package com.modules.service;
+package com.chengzj.app;
 
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;
@@ -9,6 +9,6 @@ import retrofit2.http.GET;
  */
 
 public interface IDownloadApi {
-    @GET("iop-zparking-0.0.1.20170718092339.apk")
+    @GET("Wandoujia_141749_web_direct_binded.apk")
     Observable<ResponseBody> loadFile();
 }

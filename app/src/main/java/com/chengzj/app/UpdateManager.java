@@ -1,4 +1,4 @@
-package com.modules.service;
+package com.chengzj.app;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -6,8 +6,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.widget.Toast;
-
-import com.zte.fn.iop.zparking.util.DeviceUtils;
 
 /**
  * Created by zs on 2016/7/7.
@@ -43,7 +41,7 @@ public class UpdateManager {
         int nVersion_code = 2;
         if (mVersion_code < nVersion_code) {
             // 显示提示对话
-//            showNoticeDialog(version_info);
+            showNoticeDialog(version_info);
             return true;
         } else {
             if (isToast) {
