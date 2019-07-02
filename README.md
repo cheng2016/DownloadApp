@@ -119,6 +119,12 @@
 [DownLoadManager](https://github.com/shanyao0/DownLoadManager)
 
 
+## Contact Me
+
+- Github: github.com/cheng2016
+- Email: mitnick.cheng@outlook.com
+- QQ: 1102743539
+
 ## License
 
     This is free and unencumbered software released into the public domain.
